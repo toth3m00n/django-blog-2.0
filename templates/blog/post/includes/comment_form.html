@@ -1,6 +1,16 @@
-<h2>Add a new comment</h2>
 <form action="{% url "blog:post_comment" post.id %}" method="post">
-    {{ form.as_p }}
+    {% if user.is_authenticated %}
+    <h3>Add a new comment, {{ user.username }}</h3>
+{% else %}
+    <h3>Add a new comment</h3>
+    <div class="col mt-2">
+         <p>Name: {{ form.name }} </p>
+    </div>
+    <div class="col mt-2">
+        <p>Email: {{ form.email }}</p>
+    </div>
+{% endif %}
+    <p>Body: {{ form.body }} </p>
     {% csrf_token %}
     <p><input type="submit" value="Add comment"></p>
 </form>

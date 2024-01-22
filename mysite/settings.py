@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'django.contrib.postgres',
+    "accounts"
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,11 @@ EMAIL_HOST_USER = "alisa.ageewa2003@gmail.com"
 EMAIL_HOST_PASSWORD = 'dpro aizv ekrv jdjo'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+
+LOGIN_REDIRECT_URL = "/"
+
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
+
+MEDIA_ROOT = BASE_DIR/'media'
+MEDIA_URL = '/media/'
