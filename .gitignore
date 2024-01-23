@@ -1,0 +1,4 @@
+.env
+venv/
+accounts/migrations
+blog/migrations
