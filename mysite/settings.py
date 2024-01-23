@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     "accounts",
     'social_django',
+    'django_summernote'
 ]
 
 MIDDLEWARE = [
@@ -170,3 +171,81 @@ AUTHENTICATION_BACKENDS = (
 # social auth configs for github
 SOCIAL_AUTH_GITHUB_KEY = os.environ.get('SOCIAL_AUTH_GITHUB_KEY')
 SOCIAL_AUTH_GITHUB_SECRET = os.environ.get('SOCIAL_AUTH_GITHUB_SECRET')
+
+SUMMERNOTE_THEME = 'bs5'
+
+SUMMERNOTE_CONFIG = {
+    # Использование SummernoteWidget - в iframe
+    'iframe': True,
+
+    # Или вы можете установить значение `False`, чтобы использовать SummernoteInplaceWidget - без режима iframe.
+    # В этом случае вам придется загружать источники и зависимости Bootstrap/jQuery вручную.
+    # Используйте это, когда вы уже используете темы на основе Bootstrap/jQuery.
+
+    # Пользовательские настройки Summernote
+    'summernote': {
+        # Включение Air-mode
+        # Подробнее - https://summernote.org/examples/
+        'airMode': False,
+
+        # Размеры редактора
+        'width': '100%',
+        'height': '350',
+
+        # Язык редактора
+        'lang': None
+    },
+
+    #     # Кастомизация
+    #     # https://summernote.org/deep-dive/#custom-toolbar-popover
+    #     'toolbar': [
+    #         ['style', ['style']],
+    #         ['font', ['bold', 'underline', 'clear']],
+    #         ['fontname', ['fontname']],
+    #         ['color', ['color']],
+    #         ['para', ['ul', 'ol', 'paragraph']],
+    #         ['table', ['table']],
+    #         ['insert', ['link', 'picture', 'video']],
+    #         ['view', ['fullscreen', 'codeview', 'help']],
+    #     ],
+    #
+    #     # Вы также можете добавить пользовательские настройки для внешних плагинов
+    #     'print': {
+    #         'stylesheetUrl': '/some_static_folder/printable.css',
+    #     },
+    #     'codemirror': {
+    #         'mode': 'htmlmixed',
+    #         'lineNumbers': 'true',
+    #         # Вы должны включить файл темы в 'css' или 'css_for_inplace' перед его использованием.
+    #         'theme': 'monokai',
+    #     },
+    # },
+    #
+    # # Требовать аутентификацию пользователей для загрузки вложений.
+    # 'attachment_require_authentication': True,
+    #
+    # # Установите функцию `upload_to` для вложений.
+    # # 'attachment_upload_to': my_custom_upload_to_func(),
+    #
+    # # Установите пользовательский класс хранения для вложений.
+    # 'attachment_storage_class': 'my.custom.storage.class.name',
+    #
+    # # Установка пользовательской модели для вложений (default: 'django_summernote.Attachment')
+    # 'attachment_model': 'my.custom.attachment.model',  # должен наследовать 'django_summernote.AbstractAttachment'
+    #
+    # # Вы можете полностью отключить функцию вложений.
+    # 'disable_attachment': False,
+    #
+    # # Установите значение `True`, чтобы возвращать пути вложений в абсолютных URI.
+    # 'attachment_absolute_uri': False,
+    #
+    # # Вы можете добавить пользовательские css/js для SummernoteWidget.
+    # # Обязательно поместите {{ form.media }} в шаблон перед тем, как инициировать summernote.
+    # 'css': (
+    # ),
+    # 'js': (
+    # ),
+    #
+    # Ленивая инициализация (lazy-load)
+    'lazy': True
+}

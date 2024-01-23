@@ -1,9 +1,12 @@
 from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
+
 from .models import Post, Comment
 
 
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(SummernoteModelAdmin):
+    summernote_fields = ('body',)
     list_display = ('title', 'slug', 'author', 'publish', 'status', 'tag_list')
     list_filter = ('status', 'created', 'publish', 'author')
     search_fields = ('title', 'body', 'author__username')
@@ -21,7 +24,8 @@ class PostAdmin(admin.ModelAdmin):
 
 
 @admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
+class CommentAdmin(SummernoteModelAdmin):
+    summernote_fields = ('body',)
     list_display = ('name', 'email', 'post', 'created', 'active')
     list_filter = ('active', 'created', 'updated')
     search_fields = ('name', 'email', 'body')
