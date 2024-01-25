@@ -50,8 +50,18 @@ INSTALLED_APPS = [
     "accounts",
     'social_django',
     'django_summernote',
-    'django_bootstrap5'
+    'django_bootstrap5',
+    'rest_framework',
+    'blog_api',
+    'django_filters',
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+         "rest_framework.permissions.IsAuthenticated"
+    ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -199,57 +209,5 @@ SUMMERNOTE_CONFIG = {
         # Язык редактора
         'lang': None
     },
-
-    #     # Кастомизация
-    #     # https://summernote.org/deep-dive/#custom-toolbar-popover
-    #     'toolbar': [
-    #         ['style', ['style']],
-    #         ['font', ['bold', 'underline', 'clear']],
-    #         ['fontname', ['fontname']],
-    #         ['color', ['color']],
-    #         ['para', ['ul', 'ol', 'paragraph']],
-    #         ['table', ['table']],
-    #         ['insert', ['link', 'picture', 'video']],
-    #         ['view', ['fullscreen', 'codeview', 'help']],
-    #     ],
-    #
-    #     # Вы также можете добавить пользовательские настройки для внешних плагинов
-    #     'print': {
-    #         'stylesheetUrl': '/some_static_folder/printable.css',
-    #     },
-    #     'codemirror': {
-    #         'mode': 'htmlmixed',
-    #         'lineNumbers': 'true',
-    #         # Вы должны включить файл темы в 'css' или 'css_for_inplace' перед его использованием.
-    #         'theme': 'monokai',
-    #     },
-    # },
-    #
-    # # Требовать аутентификацию пользователей для загрузки вложений.
-    # 'attachment_require_authentication': True,
-    #
-    # # Установите функцию `upload_to` для вложений.
-    # # 'attachment_upload_to': my_custom_upload_to_func(),
-    #
-    # # Установите пользовательский класс хранения для вложений.
-    # 'attachment_storage_class': 'my.custom.storage.class.name',
-    #
-    # # Установка пользовательской модели для вложений (default: 'django_summernote.Attachment')
-    # 'attachment_model': 'my.custom.attachment.model',  # должен наследовать 'django_summernote.AbstractAttachment'
-    #
-    # # Вы можете полностью отключить функцию вложений.
-    # 'disable_attachment': False,
-    #
-    # # Установите значение `True`, чтобы возвращать пути вложений в абсолютных URI.
-    # 'attachment_absolute_uri': False,
-    #
-    # # Вы можете добавить пользовательские css/js для SummernoteWidget.
-    # # Обязательно поместите {{ form.media }} в шаблон перед тем, как инициировать summernote.
-    # 'css': (
-    # ),
-    # 'js': (
-    # ),
-    #
-    # Ленивая инициализация (lazy-load)
     'lazy': True
 }
