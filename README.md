@@ -1,5 +1,5 @@
 # django blog
-## pet project 
+## Pet project 
 
 ---
 
