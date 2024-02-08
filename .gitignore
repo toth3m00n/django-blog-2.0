@@ -3,3 +3,4 @@ venv/
 accounts/migrations
 blog/migrations
 .idea
+*env/
