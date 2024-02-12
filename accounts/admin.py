@@ -7,4 +7,3 @@ from accounts.models import Profile
 @admin.register(Profile)
 class MyProfile(SummernoteModelAdmin):
     summernote_fields = ('bio',)
-
