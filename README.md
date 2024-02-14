@@ -41,7 +41,7 @@ git clone https://github.com/toth3m00n/django-blog-2.0
 Установить и активировать виртуальное окружение:
 ```
 python -m venv venv
-source venv/bin/activate
+source venv/bin/activate (Linux)
 (source venv/Scripts/activate - на Windows)
 ```
 
