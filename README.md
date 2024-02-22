@@ -1,4 +1,4 @@
-# django blog
+# Джанго блог
 ## Pet project 
 
 ---
